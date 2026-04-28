@@ -8,7 +8,7 @@
       default-src 'self';
       script-src 'self' https://unpkg.com;
       style-src 'self' 'unsafe-inline';
-      connect-src 'self' https://autumn-king-2661.kirkjlemon.workers.dev https://autumn-king-2661.kirkjlemon.workers.dev;
+      connect-src 'self' https://YOUR-WORKER.your-subdomain.workers.dev wss://YOUR-WORKER.your-subdomain.workers.dev;
       img-src 'self' data:;
       object-src 'none';
       base-uri 'self';
@@ -22,12 +22,37 @@
 <body>
   <div id="game"></div>
 
-  <div id="hud">
-    <div class="brand">Age of Realms</div>
-    <div id="status">Connecting...</div>
+  <div id="loginPanel" class="panel center-panel">
+    <h1>Age of Realms</h1>
+    <p>RuneScape2-inspired browser MMO prototype.</p>
+    <input id="username" maxlength="16" placeholder="Username" />
+    <input id="password" maxlength="64" type="password" placeholder="Password" />
+    <button id="loginBtn">Login / Create</button>
+    <div id="loginMsg"></div>
   </div>
 
-  <div id="chat">
+  <div id="hud" class="hidden">
+    <div class="brand">Age of Realms</div>
+    <div id="status">Disconnected</div>
+    <div id="coords">0, 0</div>
+  </div>
+
+  <div id="rightPanel" class="panel hidden">
+    <h2>Skills</h2>
+    <div id="skills"></div>
+    <h2>Inventory</h2>
+    <div id="inventory"></div>
+    <h2>Bank</h2>
+    <button id="bankBtn">Open Bank</button>
+    <div id="bank"></div>
+  </div>
+
+  <div id="actionPanel" class="panel hidden">
+    <div id="targetName">No target</div>
+    <button id="actionBtn">Action</button>
+  </div>
+
+  <div id="chat" class="hidden">
     <div id="messages"></div>
     <input id="chatInput" maxlength="120" placeholder="Press Enter to chat..." />
   </div>
